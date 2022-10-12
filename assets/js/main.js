@@ -14,11 +14,11 @@ Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, c
 
 //creo l'array' contenente il percorso alle immagini
 const imageList = [
-    '../img/01.webp',
-    '../img/02.webp',
-    '../img/03.webp',
-    '../img/04.webp',
-    '../img/05.webp'
+    './assets/img/01.webp',
+    './assets/img/02.webp',
+    './assets/img/03.webp',
+    './assets/img/04.webp',
+    './assets/img/05.webp'
 ]
 //recupero l'elemento dal DOM
 const slideBoxEl = document.querySelector('.slide_box');
@@ -34,6 +34,28 @@ for (let i = 0; i < imageList.length; i++) {
 
     //inserisco l'immagine nel DOM con tutto il tag), quindi creo l'emento da inserire in slideBoxEl(classe slide_box)
     //qui, activeimage corrisponde a i che cambierà la sua posizione man mano la lista
-    const imageEl = `<img class="${i === activeImg ? 'active' : ''}" src="&{singleImage}" alt="">`;
+    const imageEl = `<img class="${i === activeImg ? ' d-block' : ''}" src="${singleImage}" alt="">`;
     slideBoxEl.insertAdjacentHTML('beforeend', imageEl);
 }
+
+//prelevo i bottoni dal DOM e li inserisco in una costante, perpoi creare il click
+const buttonNextEl = document.querySelector('.next');
+const buttonPrevEl = document.querySelector('.prev');
+
+//creo l'evento click sul pulsante next
+buttonNextEl.addEventListener('click', function () {
+    //console.log('hai cliccato');
+
+    //in questa variabile controllo quale immagine ha la classe active
+    const slider = document.querySelectorAll('.slide_box > img');
+    //pesco l'immagine visibile e la metto in una variabile
+    const imgVisible = slider[activeImg];
+    //tolgo la classe d-block
+    imgVisible.classList.remove('d-block');
+    //passo all'immagine successiva i++
+    activeImg++
+    //selezione l'immagine successiva
+    const nextImg = slider[activeImg];
+    //imposto la classe d-block all'immagine selezionata
+    nextImg.classList.add('d-block');
+})
