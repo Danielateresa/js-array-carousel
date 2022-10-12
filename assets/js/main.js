@@ -61,8 +61,8 @@ buttonNextEl.addEventListener('click', function () {
 })
 
 //creo l'evento click sul pulsante prev
-//mi basterà copiare tutto ma impostare il decremento
-buttonNextEl.addEventListener('click', function () {
+//mi basterà copiare tutto cambiando il bottone di riferimento e impostando il decremento
+buttonPrevEl.addEventListener('click', function () {
     //console.log('hai cliccato');
 
     //in questa variabile controllo quale immagine ha la classe active
@@ -72,7 +72,7 @@ buttonNextEl.addEventListener('click', function () {
     //tolgo la classe d-block
     imgVisible.classList.remove('active');
     //passo all'immagine successiva i++
-    activeImg++
+    activeImg--
     //selezione l'immagine successiva
     const nextImg = slider[activeImg];
     //imposto la classe d-block all'immagine selezionata
