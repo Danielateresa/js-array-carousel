@@ -12,6 +12,11 @@ img {
     display: none;
 }
 
+.active {
+    display: block;
+}
+
+
 .prev,
 .next {
     position: absolute;

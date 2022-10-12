@@ -34,7 +34,7 @@ for (let i = 0; i < imageList.length; i++) {
 
     //inserisco l'immagine nel DOM con tutto il tag), quindi creo l'emento da inserire in slideBoxEl(classe slide_box)
     //qui, activeimage corrisponde a i che cambierà la sua posizione man mano la lista
-    const imageEl = `<img class="${i === activeImg ? ' d-block' : ''}" src="${singleImage}" alt="">`;
+    const imageEl = `<img class="${i === activeImg ? ' active ' : ''}" src="${singleImage}" alt="">`;
     slideBoxEl.insertAdjacentHTML('beforeend', imageEl);
 }
 
@@ -51,11 +51,30 @@ buttonNextEl.addEventListener('click', function () {
     //pesco l'immagine visibile e la metto in una variabile
     const imgVisible = slider[activeImg];
     //tolgo la classe d-block
-    imgVisible.classList.remove('d-block');
+    imgVisible.classList.remove('active');
     //passo all'immagine successiva i++
     activeImg++
     //selezione l'immagine successiva
     const nextImg = slider[activeImg];
     //imposto la classe d-block all'immagine selezionata
-    nextImg.classList.add('d-block');
+    nextImg.classList.add('active');
+})
+
+//creo l'evento click sul pulsante prev
+//mi basterà copiare tutto ma impostare il decremento
+buttonNextEl.addEventListener('click', function () {
+    //console.log('hai cliccato');
+
+    //in questa variabile controllo quale immagine ha la classe active
+    const slider = document.querySelectorAll('.slide_box > img');
+    //pesco l'immagine visibile e la metto in una variabile
+    const imgVisible = slider[activeImg];
+    //tolgo la classe d-block
+    imgVisible.classList.remove('active');
+    //passo all'immagine successiva i++
+    activeImg++
+    //selezione l'immagine successiva
+    const nextImg = slider[activeImg];
+    //imposto la classe d-block all'immagine selezionata
+    nextImg.classList.add('active');
 })
