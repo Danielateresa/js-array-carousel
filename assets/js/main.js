@@ -6,4 +6,3 @@ Adesso rimuoviamo tutto il markup statico e inseriamo tutte le immagini dinamica
 MILESTONE 3
 Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente. */
 
-alert('ciao')
